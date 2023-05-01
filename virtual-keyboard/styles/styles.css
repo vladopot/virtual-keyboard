@@ -40,7 +40,7 @@
 .keyboard__board__rus__second-board-line {
     display: grid;
     column-gap: 1%;
-    grid-template-columns: repeat(15, 1fr);
+    grid-template-columns: repeat(13, 1fr) 2fr;
 }
 
 .keyboard__board__rus__third-board-line {
@@ -88,4 +88,8 @@
     position: relative;
     top: calc(50% - 9px);
     text-align: center;
+}
+
+.active {
+    background-color: orange;
 }
