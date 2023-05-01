@@ -19,6 +19,16 @@ function upButton (e) {
     }
 }
 
+function add (e) {
+    let text = e.target.closest("div").textContent;
+    console.log(text);
+    if (!e.target.closest("div").classList.contains("managers")) {
+        document.querySelector(".keyboard__text-area").insertAdjacentHTML("beforeend", text);
+    } else if (text === "BackSpace") {
+        document.querySelector(".keyboard__text-area").innerHTML = document.querySelector(".keyboard__text-area").textContent.substring(0, document.querySelector(".keyboard__text-area").textContent.length - 1);
+    }
+}
+
 function init () {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].dataset.kcode = keyCodes[i];
@@ -27,5 +37,6 @@ function init () {
 
 
 init();
+document.querySelector(".keyboard__board").addEventListener("click", add)
 addEventListener("keydown", pressKeyAnimation);
 addEventListener("keyup", upButton);
