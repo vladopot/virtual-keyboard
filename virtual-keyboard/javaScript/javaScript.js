@@ -5,8 +5,8 @@ const DOM = `<div class="keyboard">
     <div class="keyboard__board__rus">
         <div class="keyboard__board__rus__first-board-line">
             <div class="button"><p>1</p></div>
-            <div class="button"><p>3</p></div>
             <div class="button"><p>2</p></div>
+            <div class="button"><p>3</p></div>
             <div class="button"><p>4</p></div>
             <div class="button"><p>5</p></div>
             <div class="button"><p>6</p></div>
@@ -51,7 +51,7 @@ const DOM = `<div class="keyboard">
         </div>
         <div class="keyboard__board__rus__forth-board-line">
             <div class="button managers" id="shift"><p>Shift</p></div>
-            <div class="button"><p>\</p></div>
+            <div class="button"><p>&bsol;</p></div>
             <div class="button"><p>z</p></div>
             <div class="button"><p>x</p></div>
             <div class="button"><p>c</p></div>
@@ -79,13 +79,13 @@ const DOM = `<div class="keyboard">
     </div>
 </div>
 </div>`;
-document.body.insertAdjacentHTML("afterbegin", DOM)
-let keyCodes = [192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 189, 187, 8, 9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 46, 20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13, 16, 191, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 38, 16, 17, 91, 18, 32, 18, 17, 37, 40, 39];
+document.body.insertAdjacentHTML("afterbegin", DOM);
+let keyCodes = [49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 189, 187, 8, 9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 46, 20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13, 16, 191, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 38, 16, 17, 91, 18, 32, 18, 17, 37, 40, 39];
 let managersKeyCodes = [9, 20, 16, 17, 91, 18, 8];
 let buttons = document.querySelectorAll(".button");
 
 function pressKeyAnimation(e) {
-    console.log(typeof e.keyCode);
+    console.log(e.keyCode);
     for (let i = 0; i < buttons.length; i++) {
         if (e.keyCode === Number(buttons[i].dataset.kcode)) {
             buttons[i].classList.add("active");
@@ -146,6 +146,6 @@ function init () {
 
 
 init();
-document.querySelector(".keyboard__board").addEventListener("click", addScreen)
+document.querySelector(".keyboard__board").addEventListener("click", addScreen);
 addEventListener("keydown", pressKeyAnimation);
 addEventListener("keyup", upButton);
